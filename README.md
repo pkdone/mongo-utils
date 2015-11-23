@@ -1,2 +1,2 @@
 # mongo-utils
-Place to put random personal scripts and tools for MongoDB
+A place to hold random personal scripts and tools for MongoDB, in case any are of use to others.
