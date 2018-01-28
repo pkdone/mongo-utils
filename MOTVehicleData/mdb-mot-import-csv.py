@@ -22,7 +22,7 @@
 # order of a whole day to load into MongoDB with this script.
 #
 # Usage (ensure py script is executable):
-#   $ ./mdb-import-mot.py /path/to/mot/data/year-folder
+#   $ ./mdb-mot-import-csv.py /path/to/mot/data/year-folder
 #
 # Output:
 # * A MongoDB collection with the namespace 'mot.testresults'

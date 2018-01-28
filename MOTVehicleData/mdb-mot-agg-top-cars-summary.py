@@ -6,7 +6,7 @@
 # makes. The MOT data set should first have been downloaded
 # https://data.gov.uk/dataset/anonymised_mot_test) and then loaded into a
 # MongoDB database called 'mot' in a collection called 'testresults', using
-# the Python script 'mdb-import-mot.py' (provided in the same directory as
+# the Python script 'mdb-mot-import-csv.py' (provided in the same directory as
 # this script). The aggregation typically takes a few minutes to complete and
 # display the results.
 #
@@ -18,7 +18,7 @@
 #   > db.testresults.ensureIndex({Make: 1, Model: 1})
 #
 # Usage (ensure py script is executable):
-#   $ ./mdb-agg-mot.py
+#   $ ./mdb-mot-agg-top-cars-summary.py
 #
 # Output:
 # * The list of the most popular older car makes in the UK over the last few
@@ -63,19 +63,19 @@ def mot_vehicle_aggregate():
         {'$sort': SON([('ModelTotal', -1)])},
         {'$group': {
             '_id': '$_id.Make',
-            'ModelTotal': {'$sum': '$ModelTotal'},
+            'MakeTotal': {'$sum': '$ModelTotal'},
             'ModelTypes': {'$sum': 1},
             'MostPopularModelName': {'$first': '$_id.Model'},
             'MostPopularModelQty': {'$first': '$ModelTotal'},
             'LeastPopularModelName': {'$last': '$_id.Model'},
             'LeastPopularModelQty': {'$last': '$ModelTotal'}
         }},
-        {'$sort': SON([('ModelTotal', -1)])},
+        {'$sort': SON([('MakeTotal', -1)])},
         {'$limit': 5},
         {'$project': {
             '_id': 0,
             'Make': '$_id',
-            'ModelTotal': 1,
+            'MakeTotal': 1,
             'ModelTypes': 1,
             'MostPopularModelName': 1,
             'MostPopularModelQty': 1,
