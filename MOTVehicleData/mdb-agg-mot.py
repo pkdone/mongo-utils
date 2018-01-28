@@ -80,7 +80,7 @@ def mot_vehicle_aggregate():
             'MostPopularModelName': 1,
             'MostPopularModelQty': 1,
             'LeastPopularModelName': 1,
-            'LeastP opularModelQty': 1
+            'LeastPopularModelQty': 1
         }},
     ]
 
