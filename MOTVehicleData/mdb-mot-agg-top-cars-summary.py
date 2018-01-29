@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#
+##
 # Performs an aggregation against the 'MOT' UK annual vehicle test result data
 # to dislplay the most popular older car makes in the UK over the last few
 # years, plus the most and least popular car models for each of these car
